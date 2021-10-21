@@ -14,14 +14,23 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
+- bash: |
     npm install
     npm run build
   displayName: 'npm install and build'
 
+- bash: |
+    ls - l
+    make build
+  displayName: show all files and folders
+
+- bash: |
+    ls - l
+  displayName: show all files and folders
+
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '"$(Build.SourcesDirectory)/build'
+    rootFolderOrFile: '$(Build.SourcesDirectory)/build'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
