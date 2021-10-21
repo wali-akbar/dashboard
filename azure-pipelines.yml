@@ -20,12 +20,12 @@ steps:
   displayName: 'npm install and build'
 
 - bash: |
-    ls - l
+    ls -l
     make build
   displayName: show all files and folders
 
 - bash: |
-    ls - l
+    ls -l
   displayName: show all files and folders
 
 - task: ArchiveFiles@2
